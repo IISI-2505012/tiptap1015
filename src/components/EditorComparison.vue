@@ -13,38 +13,13 @@
             CKEditor 5
           </h3>
           <div class="editor-container-wrapper ckeditor-wrapper">
-            <div v-if="ckeditorLoading && !ckeditorError" class="loading-indicator">
-              <div class="spinner"></div>
-              <p>載入 CKEditor 中...</p>
-            </div>
-            <div v-if="ckeditorError" class="error-indicator">
-              <div class="error-icon">❌</div>
-              <p><strong>CKEditor 載入失敗</strong></p>
-              <small>{{ ckeditorError }}</small>
-            </div>
-            <div
-              v-show="!ckeditorLoading && !ckeditorError"
-              ref="ckeditorContainer"
-              class="editor-container"
-            ></div>
+            <div ref="ckeditorContainer" class="editor-container"></div>
           </div>
 
           <!-- CKEditor 操作按鈕 -->
           <div class="editor-controls">
-            <button
-              class="btn btn-warning"
-              @click="addPeriodCKEditor"
-              :disabled="!ckeditorInstance || ckeditorLoading || !!ckeditorError"
-            >
-              句尾加表情
-            </button>
-            <button
-              class="btn btn-info"
-              @click="showCKEditorOutput"
-              :disabled="!ckeditorInstance || ckeditorLoading || !!ckeditorError"
-            >
-              顯示輸出內容
-            </button>
+            <button class="btn btn-warning" @click="addPeriodCKEditor">句尾加表情</button>
+            <button class="btn btn-info" @click="showCKEditorOutput">顯示輸出內容</button>
           </div>
 
           <!-- CKEditor 輸出格式展示 -->
@@ -60,16 +35,7 @@
             Tiptap
           </h3>
           <div class="editor-container-wrapper tiptap-wrapper">
-            <div v-if="tiptapLoading && !tiptapError" class="loading-indicator">
-              <div class="spinner"></div>
-              <p>載入 Tiptap 中...</p>
-            </div>
-            <div v-if="tiptapError" class="error-indicator">
-              <div class="error-icon">❌</div>
-              <p><strong>Tiptap 載入失敗</strong></p>
-              <small>{{ tiptapError }}</small>
-            </div>
-            <div v-show="!tiptapLoading && !tiptapError" class="tiptap-editor-container">
+            <div class="tiptap-editor-container">
               <!-- Tiptap 自訂工具列 -->
               <div class="tiptap-toolbar">
                 <button
